@@ -25,12 +25,15 @@ const PaymentData = () => {
             // script.addEventListener('load', addCheckout);
             document.body.appendChild(script);
         } 
+<<<<<<< HEAD
         if(!document.querySelector('script[src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"]')) {
             const script = document.createElement('script');
             script.type = 'text/javascript';
             script.src = 'https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js';
             document.body.appendChild(script);
         }
+=======
+>>>>>>> 409ad7fccffffc80d305394200ae77a1c9568eb2
     }, []);
     
     useEffect( () => {

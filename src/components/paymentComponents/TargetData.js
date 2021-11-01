@@ -51,7 +51,10 @@ const TargetData = ({
         }
     };
 
+<<<<<<< HEAD
     
+=======
+>>>>>>> 409ad7fccffffc80d305394200ae77a1c9568eb2
     // Step #getInstallments
     const getInstallments = async () => {
         try {
@@ -178,12 +181,15 @@ const TargetData = ({
         }
     }
 
+<<<<<<< HEAD
    
     const handleInstallments = (e) => {
         console.log(e.target);
        
     }
 
+=======
+>>>>>>> 409ad7fccffffc80d305394200ae77a1c9568eb2
     return (
         <div className="target-data">
             <form
@@ -297,7 +303,10 @@ const TargetData = ({
                         defaultValue=""
                         name="installments"
                         id="form-checkout__installments"
+<<<<<<< HEAD
                         onChange={handleInstallments}
+=======
+>>>>>>> 409ad7fccffffc80d305394200ae77a1c9568eb2
                     >
                         <option
                             value=""
@@ -315,12 +324,15 @@ const TargetData = ({
                         value={tokenElement}
                     />
                 </div>
+<<<<<<< HEAD
                 {/* <p id="summary">
                     Total al contado: <span id="total">$100</span>
                     Total financiado: <span id="total-financed">$100</span>
                     TEA: <span id="tea">0%</span>
                     CFT: <span id="cft">0%</span>
                 </p> */}
+=======
+>>>>>>> 409ad7fccffffc80d305394200ae77a1c9568eb2
                 <div className="box-submit_data">
                     <button
                         type="submit"

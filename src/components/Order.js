@@ -24,7 +24,11 @@ const Order = () => {
     const { loadOrder, order, getOrder } = OrderContext;
     // Context Checkout
     const CheckoutContext = useContext(checkoutContext);
+<<<<<<< HEAD
     const { cleanCheckoutSuccess } = CheckoutContext;
+=======
+    const { cleanCheckoutSuccess} = CheckoutContext;
+>>>>>>> 409ad7fccffffc80d305394200ae77a1c9568eb2
 
     useEffect( () => {
         getCategories();
