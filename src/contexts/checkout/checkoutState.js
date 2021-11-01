@@ -78,10 +78,7 @@ const CheckoutState = ({children}) => {
         } else if (value === '0') {
             cost = 0;
             zip = '';
-        } else if (value === '1234') {
-            cost = 5;
-            zip = value;
-        }else {
+        } else {
             cost = 500
             zip = value;
         }

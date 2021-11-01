@@ -113,13 +113,9 @@ const checkoutReducer = (state, action) => {
                 checkout: null,
                 token: null,
                 shop: null,
-<<<<<<< HEAD
-                cart: { products: []},
                 subtotal: 0,
-                shippingcost: 0
-=======
+                shippingcost: 0,
                 cart: { products: []}
->>>>>>> 409ad7fccffffc80d305394200ae77a1c9568eb2
             }
         case SET_CHECKOUT_DATA:
             return {
