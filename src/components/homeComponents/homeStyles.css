@@ -1,0 +1,507 @@
+.section-home_image {
+  background-image: url("../../images/slideMain/original.jpg");
+  min-height: 100vh;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+/*** Presentation ****/
+.content-presentation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content-presentation h1 {
+  color: var(--d);
+  text-transform: uppercase;
+  font-family: var(--fontLogo);
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+.content-presentation h1 span {
+  font-size: calc(var(--size-h1) * 0.65);
+}
+.content-presentation p {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: 400;
+  color: var(--d);
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+@media (min-width: 768px) {
+  .content-presentation {
+    width: 60%;
+  }
+  .content-presentation h1 span {
+    font-size: calc(calc(var(--size-h1) + calc(var(--size-h1) * 0.6)) * 0.65);
+  }
+  .content-presentation p {
+    font-size: 2rem;
+  }
+}
+
+
+/**** ElengantPresentation.js ****/
+.back-content {
+    height: 100%;
+    
+}
+.content-elegant-presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 12.5vh 0;
+    min-height: 65vh;
+    background-image: url('../../images/slideMain/elegant.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: content;
+    border-radius: .15rem;
+}
+
+.content-elegant-presentation_info {
+    height: 100%;
+    display: grid;
+    background-color: rgba(0, 0, 0, 0.65);
+    transition: all 1s ease-in-out;
+    min-height: 65vh; 
+    padding: 1rem;
+}
+@media (min-width: 768px) {
+  .content-elegant-presentation {
+    min-height: 60vh;
+  }
+  .content-elegant-presentation_info {
+    min-height: 60vh;
+  }
+}
+.content-elegant-presentation_info:hover {
+  background-color: rgba(0, 0, 0, 0.60);
+}
+@media (min-width: 768px) {
+    .content-elegant-presentation_info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.content-elegant-presentation_info .info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 1rem;
+    grid-row: 1 / 2;
+}
+
+.content-elegant-presentation_info .box-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    grid-row: 2 / 3;
+    padding-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .content-elegant-presentation_info .box-link {
+    grid-row: 1 / 2;
+  }
+  .content-elegant-presentation_info .info {
+    
+  }
+}
+.content-elegant-presentation_info h2 {
+    color: var(--wl);
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 0;
+    text-align: center;
+}
+.content-elegant-presentation_info .info p {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.8rem;
+    color: var(--wl);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+@media (min-width: 768px) {
+    .content-elegant-presentation_info .info p {
+      font-size: 2rem;
+      text-align: left;
+    }
+    .content-elegant-presentation_info h2 {
+      text-align: left;
+    }
+}
+
+.btn-p {
+    border: .12rem solid var(--wl);
+    color: var(--wl);
+    transition: all .25s ease-in-out;
+}
+.btn-p:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/**** Categories HomeComponents ****/
+/* .box-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  width: 85%;
+}
+@media (min-width: 768px) {
+  .box-slide {
+    width: 100%;
+  }
+}
+.box-slide_image {
+  overflow: hidden;
+}
+.box-slide_image img {
+  transition: all .3s ease-in-out;
+  border-radius: .15rem;
+  
+}
+.box-slide_image img:hover {
+  transform: scale(1.1);
+}
+.box-slide_name {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.box-slide_name h4 {
+  font-weight: 300;
+  color: var(--b);
+  margin: 0;padding: 0;
+  letter-spacing: 1px;
+  text-shadow: .1rem .25rem .25rem var(--gl);
+}
+.brand {
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-align: center;
+  color: var(--d);
+  text-transform: uppercase;
+  margin: 0;padding: 0;
+}
+.brand i {
+  margin-left: 1rem;
+}
+@media (min-width: 768px) {
+  .brand {
+    font-size: 2rem;
+  }
+}
+.prices {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.prices .p-origin,
+.prices .p-discount {
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0;padding: 0;
+}
+.prices .p-origin {
+  color: var(--gll);
+  text-decoration: line-through;
+}
+.prices .p-discount {
+  color :var(--b);
+
+}
+@media (min-width: 768px) {
+  .prices .p-origin,
+  .prices .p-discount {
+    font-size: 2.2rem;
+  }
+} */
+
+/**** Explore Component ****/
+.content-explore {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.content-explore_line {
+  height: 3.5rem;
+  width: .2rem;
+  background-color: var(--d);
+  border-radius: 25%;
+}
+.content-explore_text {
+  text-align: center;  
+}
+.content-explore_text p {
+  font-size: 1.6rem;
+  color: var(--d);
+  font-weight: 300;
+  padding-top: 0;
+  margin-top: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: .1rem .25rem .25rem var(--dl);
+}
+@media (min-width: 768px) {
+  .content-explore_text p {
+    font-size: 1.8rem;
+  }
+}
+
+/**** UrbanPresentation ****/
+.content-urban-presentation {
+  margin: 12.5vh 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 65vh;
+  background-image: url('../../images/slideMain/urban.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-attachment: content;
+  border-radius: .15rem;
+}
+.content-urban-presentation_info {
+  height: 100%;
+  min-height: 65vh;
+  padding: 1rem;
+  display: grid;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: all 1s ease-in-out;
+}
+
+.content-urban-presentation_info:hover {
+background-color: rgba(0, 0, 0, 0.60);
+}
+@media (min-width: 768px) {
+  .content-urban-presentation {
+    min-height: 60vh;
+  }
+  .content-urban-presentation_info {
+      grid-template-columns: repeat(2, 1fr);
+      min-height: 60vh;
+  }
+}
+.content-urban-presentation_info .info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.content-urban-presentation_info .box-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+.content-urban-presentation_info h2 {
+  color: var(--wl);
+  text-transform: uppercase;
+  margin: 0;padding: 0;
+  font-weight: 300;
+  margin-bottom: 0;
+  text-align: center;
+  
+  text-shadow: .1rem .25rem .25rem var(--dl);
+}
+.content-urban-presentation_info .info p {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.8rem;
+  color: var(--wl);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+@media (min-width: 768px) {
+  .content-urban-presentation_info .info p {
+      font-size: 2rem;
+      text-align: left;
+  }
+  .content-urban-presentation_info h2 {
+    text-align: left;
+  }
+}
+
+
+
+/*** AboutPresentation HomeComponnets ***/
+.section-image_about {
+  min-height: 50vh;
+  display: flex;
+  margin: 25vh 0;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url('../../images/slideMain/vidriera.jpg');
+  background-position: center center;
+  background-size: cover;
+  /* background-attachment: fixed; */
+}
+.back-section-about-presentation {
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.content-about-presentation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  min-height: 55vh;
+  gap: 2rem;
+}
+.content-about-presentation h4 {
+  color: var(--w);
+  text-align: left;
+  font-weight: 300;
+  margin: 0;padding: 0;
+}
+.content-about-presentation p {
+  color: var(--w);
+  margin: 0;padding: 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .content-about-presentation p {
+    font-size: 2rem;
+    width: 50%;
+  }
+}
+
+/**** Newsletter HomeComponents ****/
+.content-newsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  border-radius: .15rem;
+  /* margin-top: 2rem; */
+    padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+@media (min-width: 768px) {
+  .content-newsletter {
+    width: 75%;
+    margin: 2rem auto 0 auto;
+  }
+}
+.content-newsletter h4 {
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+  text-shadow: .1rem .25rem .25rem var(--dl);
+  color: var(--w);
+}
+.content-newsletter p {
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  color: var(--w);
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  .content-newsletter p {
+    font-size: 1.8rem;
+  }
+}
+.form-newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .5rem;
+}
+@media (min-width: 768px) {
+  .form-newsletter {
+    flex-direction: row;
+  }
+}
+.field-newsletter {
+  display: flex;
+  flex-direction: column;
+  /* gap: .5rem; */
+  flex: 1;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .field-newsletter {
+    gap: .5rem;
+  }
+}
+.field-newsletter label {
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: var(--w);
+  letter-spacing: 1px;
+}
+.field-newsletter input {
+  font-size: 1.6rem;
+  padding: 1rem;
+  outline: none;
+  font-weight: 300;
+  letter-spacing: 1px;
+  border: .1rem solid var(--b);
+  border-radius: .15rem;
+  color: var(--w);
+  background-color: rgba(0, 0, 0, 0.55);
+}
+.form-newsletter .btn-submit {
+  padding: 1rem;
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: .1rem solid var(--d);
+  color: var(--d);
+  letter-spacing: 1px;
+  font-weight: 400;
+  border-radius: .15rem;
+  transition: all .25s ease-in-out;
+  width: 100%;
+}
+.form-newsletter .btn-submit:hover {
+  background-color: var(--dl);
+}
+@media (min-width: 768px) {
+  .form-newsletter .btn-submit {
+    font-size: 1.8rem;
+    flex: 0 0 10rem;
+  }
+  .field-newsletter label,
+  .field-newsletter input {
+    font-size: 1.8rem;
+  }
+}
+
