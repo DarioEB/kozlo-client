@@ -94,12 +94,12 @@ const Footer = () => {
 
                             <div className="content-footer_social">
                                 <a
-                                    href="/"
+                                    href="https://www.instagram.com/kozlo.hombre/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 ><i className="fab fa-instagram"></i></a>
                                 <a
-                                    href="/"
+                                    href="https://www.facebook.com/kozlo.hombres/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 ><i className="fab fa-facebook-f"></i></a>
