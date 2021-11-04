@@ -249,7 +249,7 @@ li {
 }
 @media (min-width: 768px) {
   .box-slide_name.list-products h4 {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 }
 
@@ -302,6 +302,13 @@ li {
 .box-slide_name.list-products .prices .p-discount {
   font-size: 1.6rem;
   font-weight: 600;
+}
+@media (min-width: 768px) {
+  .box-slide_name.list-products .prices .p-origin,
+  .box-slide_name.list-products .prices .p-discount {
+    font-size: 1.8rem;
+    font-weight: 600;
+  } 
 }
 
 .prices .p-origin {

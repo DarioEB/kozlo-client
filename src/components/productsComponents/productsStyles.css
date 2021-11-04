@@ -120,11 +120,17 @@ color: var(--d);
 .content-filters_prices form select {
     padding: 1rem;
     font-size: 1.6rem;
-    border-radius: .15rem;
+    border-radius: .35rem;
     outline: none;
-    font-weight: 400;
+    letter-spacing: 1px;
+    font-weight: 600;
     -webkit-appearance: none;
     background-color: var(--w);
+    text-align: center;
+    border: .15rem solid var(--b);
+}
+.content-filters_prices form select option {
+    text-align: center !important;
 }
 @media (min-width: 768px) {
     .content-filters_categories form select,
@@ -230,7 +236,7 @@ color: var(--d);
 @media (min-width: 768px) {
     .content-products {
         grid-template-columns: repeat(4, 1fr);
-        gap: 4rem;
-        row-gap: 6rem;
+        gap: 3rem;
+        row-gap: 5rem;
     }
 }
