@@ -5,7 +5,6 @@ import Whatsapp from './layout/Whatsapp';
 import Presentation from './homeComponents/Presentation';
 import Information from './layout/Information';
 import ElegantPresentation from './homeComponents/ElegantPresentation';
-import Categories from './homeComponents/Categories';
 import UrbanPresentation from './homeComponents/UrbanPresentation';
 import Outstading from './homeComponents/Outstanding';
 import AboutPresentation from './homeComponents/AboutPresentation';
@@ -19,6 +18,7 @@ import categoriesContext from '../contexts/categories/categoriesContext';
 import productsContext from '../contexts/products/productsContext';
 // Context de autenticacion 
 import authContext from '../contexts/auth/authContext';
+import Suits from './homeComponents/Suits';
 const Home = () => {
 
     const CategoriesContext = useContext(categoriesContext);
@@ -57,14 +57,12 @@ const Home = () => {
             <Whatsapp />
             <Presentation />
             <Information />
+            <Suits products={products} />
             <ElegantPresentation />
-            <Categories
-                categories={categories}
-            />
-            <UrbanPresentation />
             <Outstading
                 products={products}
             />
+            <UrbanPresentation />
             <AboutPresentation />
             <Newsletter />
             <Footer />

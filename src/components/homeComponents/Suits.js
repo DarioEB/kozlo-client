@@ -17,15 +17,15 @@ import SwiperCore, {
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
-const Outstading = ({products}) => {
+const Suits = ({ products }) => {
 
-    const outsProducts = products.filter(product => product.category.name !== 'Trajes');
+    const suitsProducts = products.filter( product => product.category.name === 'Trajes');
 
     return (
         <section className="section">
             <div className="container">
                 <div className="title">
-                    <h2>Destacados</h2>
+                    <h2>Sacos y Ambos</h2>
                 </div>
                 <div className="content">
                     <div className="content-outstanding">
@@ -42,7 +42,7 @@ const Outstading = ({products}) => {
                                 }
                             }}
                         >
-                            {outsProducts.map( product => (
+                            {suitsProducts.map(product => (
                                 <SwiperSlide
                                     key={product._id}
                                 >
@@ -53,7 +53,7 @@ const Outstading = ({products}) => {
                                             <div
                                                 className="box-slide_image"
                                             >
-                                                <img 
+                                                <img
                                                     src={`${process.env.REACT_APP_BACKEND_URL}/api/products/get-image/${product.images[0]}`}
                                                     alt={`Imagen ${product.name}`}
                                                 />
@@ -74,9 +74,9 @@ const Outstading = ({products}) => {
                     </div>
                 </div>
             </div>
-            <Explore textExplore={'Explorá los destacados de Kozlo'} />
+            <Explore textExplore={'Explorá nuestras distintas opciones en trajes'} />
         </section>
     );
 }
 
-export default Outstading;
+export default Suits;

@@ -9,14 +9,14 @@ const Product = ({ product }) => {
             <article className="box-card">
 
                 <div
-                    className="box-slide_image"
+                    className="box-slide_image list-products"
                 >
                     <img
                         src={`${process.env.REACT_APP_BACKEND_URL}/api/products/get-image/${product.images[0]}`}
                         alt={`Imagen ${product.name}`}
                     />
                 </div>
-                <div className="box-slide_name">
+                <div className="box-slide_name list-products">
                     <h4>{product.name}</h4>
                     <p className="brand">{product.brand}<i className="fas fa-tag"></i></p>
                     <div className="prices">

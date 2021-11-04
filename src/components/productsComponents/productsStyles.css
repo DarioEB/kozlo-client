@@ -225,7 +225,7 @@ color: var(--d);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    row-gap: 3rem;
+    row-gap: 2.5rem;
 }
 @media (min-width: 768px) {
     .content-products {
