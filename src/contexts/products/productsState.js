@@ -18,7 +18,9 @@ import {
     DELETE_PRODUCT_SUCCESS,
     DELETE_PRODUCT_ERROR,
     ADD_FILTER_PRICE,
-    REMOVE_FILTER_PRICE
+    REMOVE_FILTER_PRICE,
+    FILTER_SEARCH,
+    REMOVE_FILTER_SEARCH
 } from '../../types';
 import productsReducer from './productsReducer';
 import productsContext from './productsContext';
@@ -238,7 +240,18 @@ const ProductsState = ({children}) => {
         } 
     }
 
+    const filterSearch = async (search) => {
+        dispatch({
+            type: FILTER_SEARCH,
+            payload: search.toLowerCase()
+        })
+    }
 
+    const removeFilterSearch = () => {
+        dispatch({
+            type: REMOVE_FILTER_SEARCH
+        })
+    }
 
     return (
         <productsContext.Provider
@@ -260,7 +273,9 @@ const ProductsState = ({children}) => {
                 getProductsFilter,
                 addProduct,
                 deleteProduct,
-                addFilterPrice
+                addFilterPrice,
+                filterSearch,
+                removeFilterSearch
             }}
         >
             {children}

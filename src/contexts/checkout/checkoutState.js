@@ -17,7 +17,8 @@ import {
     CHECKOUT_SUCCESS,
     CHECKOUT_ERROR,
     SET_SHIPPING_COST,
-    CLEAN_CHECKOUT_SUCCESS
+    CLEAN_CHECKOUT_SUCCESS,
+    SET_VIEW_CART_GLOBAL
 } from '../../types';
 import checkoutReducer from './checkoutReducer';
 import checkoutContext from './checkoutContext';
@@ -29,6 +30,7 @@ const CheckoutState = ({children}) => {
         cart: {
             products: []
         },
+        viewCartGlobal: false,
         loadCart: null,
         errorCart: null,
         subtotal: 0,
@@ -194,7 +196,12 @@ const CheckoutState = ({children}) => {
         });
     }
 
-    
+    const setViewCartGlobal = (state) => {
+        dispatch({
+            type: SET_VIEW_CART_GLOBAL,
+            payload: state
+        })
+    }
 
     return (
         <checkoutContext.Provider
@@ -211,6 +218,7 @@ const CheckoutState = ({children}) => {
                 shop: state.shop,
                 loadShop: state.loadShop,
                 errorShop: state.errorShop,
+                viewCartGlobal: state.viewCartGlobal,
                 handleChangeClientData,
                 checkoutPayment,
                 addProductToCart,
@@ -221,7 +229,8 @@ const CheckoutState = ({children}) => {
                 cleanCheckout,
                 setCheckoutData,
                 handleShippingCost,
-                cleanCheckoutSuccess
+                cleanCheckoutSuccess,
+                setViewCartGlobal
             }}
         >
             {children}

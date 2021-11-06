@@ -17,7 +17,9 @@ import {
     DELETE_PRODUCT_SUCCESS,
     DELETE_PRODUCT_ERROR,
     ADD_FILTER_PRICE,
-    REMOVE_FILTER_PRICE
+    REMOVE_FILTER_PRICE,
+    FILTER_SEARCH,
+    REMOVE_FILTER_SEARCH
 } from '../../types';
 
 const productsReducer = (state, action) => {
@@ -135,6 +137,16 @@ const productsReducer = (state, action) => {
             return {
                 ...state,
                 cleanForm: null
+            }
+        case FILTER_SEARCH:
+            return {
+                ...state,
+                filterProducts: state.products.filter( product => product.name.toLowerCase().includes(action.payload) || product.brand.toLowerCase().includes(action.payload))
+            }
+        case REMOVE_FILTER_SEARCH:
+            return {
+                ...state,
+                filterProducts: state.products
             }
         default:
             return state

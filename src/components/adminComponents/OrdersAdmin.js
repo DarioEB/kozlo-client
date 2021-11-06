@@ -27,6 +27,13 @@ const OrdersAdmin = () => {
                     className="btn"
                 >Buscar pedido</button>
             </div>
+            {
+                !component ? 
+                <div className="content-component_preview">
+                    {orders.length === 0 ? <p>Todavía no hay usuarios cargados</p> : <p>Selecciona una acción</p>}
+                </div> : null
+            }
+            
             <div className="content-component_actions">
                 {
                     component === 'list-orders' ?

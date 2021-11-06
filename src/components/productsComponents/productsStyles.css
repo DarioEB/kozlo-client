@@ -92,6 +92,7 @@ color: var(--d);
     display: grid;
     gap: 1rem;
     padding: 2rem 0;
+    align-items: baseline;
 }
 @media (min-width: 768px) {
     .content-filters {
@@ -177,6 +178,39 @@ color: var(--d);
     text-transform: uppercase;
     color: var(--gl);
 }
+
+.filter-search {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    border: .1rem solid var(--b);
+    border-radius: .5rem;
+    background-color: var(--b);
+}
+.filter-search .searching {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: var(--d);
+}
+.filter-search button {
+    width: 2rem;
+    height: 2rem;
+    display: flex; align-items: center; justify-content: center;
+    border: .1rem solid var(--b);
+    border-radius: 50%;
+    padding: 0;margin: 0;
+    color: var(--d);
+    cursor: pointer;
+    font-size: 2rem;
+}
+@media (min-width: 768px) {
+    .filter-search .searching {
+        font-size: 1.6rem;
+    }   
+}
+
+
 .categories-selected {
     margin: 1rem 0;
 

@@ -56,7 +56,9 @@ const Header = ({ categories, authenticated, user, logout }) => {
         removeProductToCart, 
         removeProductCart,
         handleShippingCost,
-        clientdata
+        clientdata,
+        viewCartGlobal,
+        setViewCartGlobal
     } = CheckoutContext;
 
     const history = useHistory();
@@ -93,7 +95,14 @@ const Header = ({ categories, authenticated, user, logout }) => {
 
     const handleViewCart = () => {
         setMobileMenu(false);
-        setViewCart(!viewcart);
+        if(viewCartGlobal) {
+            
+            setViewCartGlobal(false);
+            setViewCart(false);
+        } else {
+            setViewCartGlobal(true);
+            setViewCart(true);    
+        }
     }
 
     return (
@@ -223,6 +232,8 @@ const Header = ({ categories, authenticated, user, logout }) => {
                 removeProductCart={removeProductCart}
                 handleShippingCost={handleShippingCost}
                 clientdata={clientdata}
+                viewCartGlobal={viewCartGlobal}
+                setViewCartGlobal={setViewCartGlobal}
             />
         </header>
     );

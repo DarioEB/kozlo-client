@@ -210,6 +210,22 @@
     height: 3.5rem;
   }
 }
+
+.content-component_preview {
+  margin: 5rem 0;
+}
+.content-component_preview p {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--gl);
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .content-component_preview p {
+    font-size: 2rem;
+  }
+}
+
 .content-component_actions {
   margin-top: 4rem;
 }

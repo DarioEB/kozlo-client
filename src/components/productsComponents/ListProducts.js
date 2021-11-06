@@ -13,7 +13,7 @@ const ListProducts = ({products,  filters}) => {
                 </div>
             </div>
         </section>
-    )
+    );
     
 
     return(

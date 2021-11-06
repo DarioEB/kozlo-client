@@ -9,7 +9,7 @@ import AlertFloat from '../alertComponents/AlertFloat';
 const InformationProduct = ({product, authenticated, user}) => {
 
     const CheckoutContext = useContext(checkoutContext);
-    const {cart, addProductToCart, addProductCart } = CheckoutContext;
+    const {cart, addProductToCart, addProductCart, setViewCartGlobal } = CheckoutContext;
 
     // State para almacenar el input de talle
     const [waist, setWaist] = useState(null);
@@ -96,6 +96,7 @@ const InformationProduct = ({product, authenticated, user}) => {
                 
                 setMax(null);
                 setShop(false);
+                setViewCartGlobal(true);
                 setTimeout( () => {
                     setAddSuccess(false);
                 }, 4200);

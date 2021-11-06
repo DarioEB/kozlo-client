@@ -47,6 +47,13 @@ const ProductsAdmin = () => {
                 ><span>Listar Productos</span> <i className="fas fa-tshirt"></i></button>
                 <button className="btn">Buscar Productos <i className="fas fa-search"></i></button>
             </div>
+            {
+                !component ? 
+                    <div className="content-component_preview">
+                        <p>Selecciona una acción</p>
+                    </div>    
+                :   null
+            }
             <div className="content-component_actions">
                 {
                     component === 'add-product' && !cleanForm ?

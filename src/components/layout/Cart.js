@@ -15,7 +15,9 @@ const Cart = ({
     user,
     removeProductCart,
     handleShippingCost,
-    clientdata
+    clientdata,
+    viewCartGlobal,
+    setViewCartGlobal
 }) => {
 
     const history = useHistory();
@@ -50,7 +52,7 @@ const Cart = ({
 
 
     return (
-        <section className={`section-cart ${viewcart ? 'view-section-cart' : 'hidden-section-cart'}`}>
+        <section className={`section-cart ${viewcart || viewCartGlobal ? 'view-section-cart' : 'hidden-section-cart'}`}>
             {cart.products.length === 0
                 ? (
                     <NotProducts />

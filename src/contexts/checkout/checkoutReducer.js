@@ -16,7 +16,8 @@ import {
     CHECKOUT_SUCCESS,
     CHECKOUT_ERROR,
     SET_SHIPPING_COST,
-    CLEAN_CHECKOUT_SUCCESS
+    CLEAN_CHECKOUT_SUCCESS,
+    SET_VIEW_CART_GLOBAL
 } from '../../types';
 
 const checkoutReducer = (state, action) => {
@@ -161,6 +162,11 @@ const checkoutReducer = (state, action) => {
                 ...state,
                 loadShop: false,
                 errorShop: true
+            }
+        case SET_VIEW_CART_GLOBAL:
+            return {
+                ...state,
+                viewCartGlobal: action.payload
             }
         default:
             return state;

@@ -28,6 +28,13 @@ const CategoriesAdmin = () => {
                 ><span>Listar Categorías</span> <i className="fas fa-tshirt"></i></button>
                 <button className="btn">Buscar Categorías <i className="fas fa-search"></i></button>
             </div>
+            {!component ? 
+                <div className="content-component_preview">
+                    <p>Selecciona una acción</p>
+                </div>    
+            : null
+            }
+            
             <div className="content-component_actions">
                 {
                     component === 'add-category' && !cleanForm ? 
