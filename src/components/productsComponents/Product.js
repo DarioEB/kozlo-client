@@ -19,10 +19,18 @@ const Product = ({ product }) => {
                 <div className="box-slide_name list-products">
                     <h4>{product.name}</h4>
                     <p className="brand">{product.brand}<i className="fas fa-tag"></i></p>
-                    <div className="prices">
-                        <p className="p-origin">${product.price}</p>
-                        <p className="p-discount">${(product.price - (product.price * (product.discount / 100))).toFixed(2)}</p>
-                    </div>
+
+                    {
+                        product.discount === 0 ? 
+                        <div className="prices">
+                            <p className="p-discount">${(product.price).toFixed(2)}</p>
+                        </div>
+                        :
+                        <div className="prices">
+                            <p className="p-origin">${(product.price).toFixed(2)}</p>
+                            <p className="p-discount">${(product.price - (product.price * (product.discount / 100))).toFixed(2)}</p>
+                        </div>
+                    }
                 </div>
             </article>
         </Link>

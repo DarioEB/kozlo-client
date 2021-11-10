@@ -17,6 +17,12 @@ const ContentLink = styled.div`
         gap: .5rem;
         align-items: center;
         cursor: pointer;
+        &:hover {
+            i {
+                background: transparent;
+                color: var(--d);
+            }
+        }
         span {
             position: relative;
             transition: all .25s ease-in-out;
@@ -33,9 +39,9 @@ const ContentLink = styled.div`
             }
             &:hover {
                 color: var(--d);
+                
                 &::before {
                     width: 100%;
-
                 }
             }
         } 
@@ -126,7 +132,7 @@ const Header = ({ categories, authenticated, user, logout }) => {
                             </Link>
                         </div>
                         <nav className="content-header_nav">
-                            <ContentLink>
+                            {/* <ContentLink>
                                 <span
                                     className="link"
                                     onMouseEnter={() => setMenuYoung(true)}
@@ -134,7 +140,7 @@ const Header = ({ categories, authenticated, user, logout }) => {
                                 >
                                     <span>Young</span> <i className="fas fa-chevron-down"></i>
                                 </span>
-                            </ContentLink>
+                            </ContentLink> */}
                             <ContentLink>
                                 <span
                                     className="link"

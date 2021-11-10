@@ -5,10 +5,19 @@ const PricesNWaists = ({product, handleWaist}) => {
 
     return (
         <div className="others">
-            <div className="others-prices">
-                <p className="discount">Precio: <span>${product.price}</span></p>
-                <p className="total">Total: <span>${(product.price - (product.price * (product.discount / 100))).toFixed(2)}</span></p>
-            </div>
+            
+            {
+                product.discount === 0 ?
+                <div className="others-prices">
+                    {/* <p className="discount">Precio: <span>${product.price}</span></p> */}
+                    <p className="total">Total: <span>${(product.price - (product.price * (product.discount / 100))).toFixed(2)}</span></p>
+                </div>
+                : 
+                <div className="others-prices">
+                    <p className="discount">Precio: <span>${(product.price).toFixed(2)}</span></p>
+                    <p className="total">Total: <span>${(product.price - (product.price * (product.discount / 100))).toFixed(2)}</span></p>
+                </div>
+            }
             <p>Talles disponibles</p>
             <span>selecciona el talle para ingresar la cantidad que deseas</span>
             <ul>

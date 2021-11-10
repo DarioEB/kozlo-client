@@ -2,7 +2,7 @@ import React from 'react';
 // Link
 import { Link } from 'react-router-dom';
 // Imagen
-import image from '../../images/slideMain/6.jpg'
+import image from '../../images/portada/1.jpg'
 // Styled Component
 import styled from '@emotion/styled'
 const Li = styled.li`

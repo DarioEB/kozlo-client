@@ -1,23 +1,43 @@
-.section-home_image {
-  background-image: url("../../images/slideMain/original.jpg");
-  min-height: 100vh;
+.home-slide {
+  min-height: calc(100vh - 12rem);
   height: 100%;
+  width: 100%;
   background-position: center center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
+.swiper-slide-home {
+  padding: 4rem 0 2rem 0;
+  background-color: var(--b);
+}
+@media (min-width: 768px) {
+  .swiper-slide-home {
+    padding: 6rem 2rem 0 2rem;
+  }
+}
+.home-slide_uno {
+  background-image: url("../../images/portada/4.jpg");
+}
+.home-slide_dos {
+  background-image: url("../../images/portada/5.jpg"); 
+}
+.home-slide_tres {
+  background-image: url("../../images/portada/6.jpg"); 
+}
+@media (min-width: 768px) {
+  .home-slide_uno {
+    background-image: url("../../images/portada/1.jpg");
+  }
+  .home-slide_dos {
+    background-image: url("../../images/portada/2.jpg"); 
+  }
+  .home-slide_tres {
+    background-image: url("../../images/portada/3.jpg"); 
+  }
+}
+
 /*** Presentation ****/
-.content-presentation {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  gap: 1rem;
-  min-height: 100vh;
-  width: 100%;
-  margin: 0 auto;
-}
+
 
 .content-presentation h1 {
   color: var(--d);
@@ -76,7 +96,7 @@
     background-color: rgba(0, 0, 0, 0.65);
     transition: all 1s ease-in-out;
     min-height: 65vh; 
-    padding: 1rem;
+    padding: 2rem 1rem;
 }
 @media (min-width: 768px) {
   .content-elegant-presentation {
@@ -131,14 +151,14 @@
 .content-elegant-presentation_info .info p {
     text-align: center;
     line-height: 1.5;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: var(--wl);
     font-weight: 300;
     letter-spacing: 1px;
 }
 @media (min-width: 768px) {
     .content-elegant-presentation_info .info p {
-      font-size: 2rem;
+      font-size: 1.8rem;
       text-align: left;
     }
     .content-elegant-presentation_info h2 {
@@ -310,7 +330,7 @@ background-color: rgba(0, 0, 0, 0.60);
   flex-direction: column;
   height: 100%;
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 
 .content-urban-presentation_info .box-link {
@@ -336,14 +356,14 @@ background-color: rgba(0, 0, 0, 0.60);
 .content-urban-presentation_info .info p {
   text-align: center;
   line-height: 1.5;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: var(--wl);
   font-weight: 300;
   letter-spacing: 1px;
 }
 @media (min-width: 768px) {
   .content-urban-presentation_info .info p {
-      font-size: 2rem;
+      font-size: 1.8rem;
       text-align: left;
   }
   .content-urban-presentation_info h2 {

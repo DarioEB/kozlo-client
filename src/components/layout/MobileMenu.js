@@ -14,24 +14,24 @@ const MobileMenu = ({ mobilemenu,
     const ProductsContext = useContext(productsContext);
     const { addFilterCategory, filters } = ProductsContext;
 
-    const [viewyoung, setViewYoung] = useState(false);
+    // const [viewyoung, setViewYoung] = useState(false);
     const [viewcategories, setViewCategories] = useState(false);
     const [viewtags, setViewTags] = useState(false);
 
-    const handleViewYoung = () => {
-        setViewCategories(false);
-        setViewTags(false);
-        setViewYoung(!viewyoung);
-    }
+    // const handleViewYoung = () => {
+    //     setViewCategories(false);
+    //     setViewTags(false);
+    //     setViewYoung(!viewyoung);
+    // }
 
     const handleViewCategories = () => {
-        setViewYoung(false);
+        // setViewYoung(false);
         setViewTags(false);
         setViewCategories(!viewcategories);
     }
 
     const handleViewTags = () => {
-        setViewYoung(false);
+        // setViewYoung(false);
         setViewCategories(false);
         setViewTags(!viewtags);
     }
@@ -51,15 +51,15 @@ const MobileMenu = ({ mobilemenu,
                 <nav
                     className="nav-mobile-menu"
                 >
-                    <div className="nav-mobile-menu_box">
-                        <span
+                    {/* <div className="nav-mobile-menu_box"> */}
+                        {/* <span
                             className={`link ${viewyoung ? 'link-d' : ''}`}
                             onClick={() => handleViewYoung()}
                         >
                             <span>Young</span>
                             <i className={`fas fa-chevron-${viewyoung ? 'up' : 'down'}`}></i>
-                        </span>
-                        {
+                        </span> */}
+                        {/* {
                             viewyoung ?
                                 <ul className="items">
                                     {categories.map(category => (
@@ -74,8 +74,8 @@ const MobileMenu = ({ mobilemenu,
                                     ))}
                                 </ul>
                                 : null
-                        }
-                    </div>
+                        } */}
+                    {/* </div> */}
                     <div className="nav-mobile-menu_box">
                         <span
                             className={`link ${viewtags ? 'link-d' : ''}`}

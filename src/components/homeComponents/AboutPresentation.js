@@ -13,7 +13,6 @@ const AboutPresentation = () => {
                             <div className="content-about-presentation">
                                 <h4>Descubre más de Kozlo</h4>
                                 <p>Visitá nuestro local con todos los protocolos de seguridad para vos.</p>
-
                                 <Link
                                     to={'/about'}
                                     className="btn btn-d"

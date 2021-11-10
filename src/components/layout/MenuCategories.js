@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 // Link
 import { Link } from 'react-router-dom';
 // Imagen
-import image from '../../images/slideMain/elegant-men.JPG'
+import image from '../../images/portada/2.jpg'
 // Styled Component
 import styled from '@emotion/styled'
 // Contexts
@@ -10,7 +10,7 @@ import productsContext from '../../contexts/products/productsContext';
 const Li = styled.li`
     .link {
         position: relative;
-            transition: all .25s ease-in-out;
+        transition: all .25s ease-in-out;
         &::before {
             content: '';
             position: absolute;

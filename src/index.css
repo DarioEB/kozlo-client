@@ -126,8 +126,7 @@ h4 {
   color: var(--d);
 }
 .title-logo span {
-  font-size: calc(var(--size-h1) * 0.9);
-  
+  font-size: calc(var(--size-h1) * 0.85);
 }
 .content {
   display: flex;
@@ -635,10 +634,11 @@ li {
 }
 .content-menu_list ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  column-gap: 6rem;
-  row-gap: 4rem;position: relative;
+  column-gap: 3rem;
+  row-gap: 4rem;
+  position: relative;
   z-index: 13;
 }
 .content-menu_list_tag ul {
@@ -650,9 +650,10 @@ li {
 }
 .content-menu_list ul li .link,
 .content-menu_list_tag ul li .link {
-  font-size: 1.8rem;
+  font-size: 1.45rem;
   color: var(--w);
-  font-weight: 300;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 .content-menu_image > div {
   width: 75%;

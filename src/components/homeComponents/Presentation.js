@@ -1,29 +1,36 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.min.css';
+import 'swiper/components/pagination/pagination.min.css';
+import 'swiper/components/navigation/navigation.min.css';
+import SwiperCore, {
+    Pagination,
+    Autoplay,
+    Navigation
+} from 'swiper/core';
+
+SwiperCore.use([Pagination, Autoplay, Navigation]);
+
 const Presentation = () => {
 
     return (
-        <section className="section section-home_image">
-            <div className="back-section">
-                <div className="container">
-                    <div className="content">
-                        <div className="content-presentation">
-                            <h1>K<span>ozlo</span>.</h1>
-                            <p>
-                                Indumentaria para hombres con personalidad, que 
-                                buscan diferenciarse y marcar su estilo.
-                                Es ahora el momento de prepararte y estar 
-                                listo... Es ahora el momento de ver el futuro
-                                y descubrir las colecciones que cambiarán las forma de expresar tu estilo.
-                            </p>
-                            <Link
-                                to="/"
-                                className="btn btn-d"
-                            >Exclusivo Kozlo</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section className="swiper-slide-home section">
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={0}
+                autoplay={true}
+                loop={true}
+            >
+                <SwiperSlide>
+                    <div className="home-slide home-slide_uno"></div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="home-slide home-slide_dos"></div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className="home-slide home-slide_tres"></div>
+                </SwiperSlide>
+            </Swiper>
         </section>
     );
 }
