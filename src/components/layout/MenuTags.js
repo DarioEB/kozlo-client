@@ -56,12 +56,23 @@ const MenuTags = ({ tags, menutags, setMenuTags }) => {
                             </ul>
                         </div>
                         <div className="content-menu_image">
-                            <div>
-                                <img
-                                    src={image}
-                                    alt="Imagen de Men Style"
-                                />
-                            </div>
+                        <Link
+                                to={"/products"}
+                                className="content-menu_image-link"
+                            >
+                                <div className="content-menu_image-box">
+                                    <img
+                                        src={image}
+                                        alt="Imagen de Men Style"
+                                    />
+                                    <div className="content-menu_image-button">
+                                        <span>
+                                            Ver todo
+                                        </span>
+                                    </div>
+                                </div>
+                            </Link>
+                            
                         </div>
                     </div>
                 </div>

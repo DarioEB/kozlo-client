@@ -655,15 +655,46 @@ li {
   text-transform: uppercase;
   font-weight: 400;
 }
-.content-menu_image > div {
+.content-menu_image > .content-menu_image-box {
   width: 75%;
   overflow: hidden;
 }
-.content-menu_image > div > img {
-  transition: all 1s ease-in-out;
+.content-menu_image-link .content-menu_image-box {
+  overflow: hidden;
+  position: relative;
 }
-.content-menu_image > div > img:hover {
-  transform: scale(1.1);
+.content-menu_image  div  img {
+  transition: all 1s ease-in-out;
+
+  overflow: hidden;
+}
+.content-menu_image  div  img:hover {
+  transform: scale(1.1);  
+  opacity: 0.8;
+}
+.content-menu_image-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0%;
+  top: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 15;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.content-menu_image-button span {
+  text-align: center;
+  color: var(--d);
+  background-color: var(--dl);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  border: .1rem solid var(--d);
+  padding: 1rem 2rem;
+  border-radius : .5rem;
+  letter-spacing: 1px;
 }
 /*** WhatsappComponent LayoutComponents ***/
 .content-whatsapp {
