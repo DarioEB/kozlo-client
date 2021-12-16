@@ -27,12 +27,12 @@ const Admin = (props) => {
     return (
         <section className="admin-container">
             <div className="content-nav-admin">
-                 
                 <Bar 
                     logout={logout}
                     user={user}
                 />
                 <Sidebar 
+                    content={content}
                     changeContent={changeContent}
                 />
             </div>

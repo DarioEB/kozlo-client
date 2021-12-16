@@ -25,6 +25,9 @@ import AdminState from './contexts/admin/adminState';
 import TagState from './contexts/tags/tagState';
 import OrderState from './contexts/orders/orderState';
 import NewsletterState from './contexts/newsletter/newsletterState';
+import ProductsAdmin from './components/adminComponents/ProductsAdmin';
+import CategoriesAdmin from './components/adminComponents/CategoriesAdmin';
+import EditProduct from './components/adminComponents/productsAdminComponents/EditProduct';
 
 function App() {
   return (
@@ -54,6 +57,11 @@ function App() {
                         <Route exact path={"/account/verify"} component={VerifyAccount} />
                         <Route exact path={"/terms-conditions"} component={TermsConditions} />
                         <PrivateRoute exact path={"/admin"} component={Admin} />
+                        <PrivateRoute exact path={"/admin/products"} component={ProductsAdmin} />
+                        <PrivateRoute exact path={"/admin/products/:component"} component={ProductsAdmin} />
+                        <PrivateRoute exact path={"/admin/products/edit/:id"} component={EditProduct} />
+                        <PrivateRoute exact path={"/admin/categories"} component={CategoriesAdmin} />
+                        <PrivateRoute exact path={"/admin/categories/:component"} component={CategoriesAdmin} />
                       </Switch>
                     </Router>
                   </AdminState>

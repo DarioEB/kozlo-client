@@ -1,5 +1,8 @@
+import { TrashIcon } from '@heroicons/react/outline';
 import React from 'react';
-
+import {
+    WaistsContent
+} from '../../UI';
 const WaistsSelect = ({category, setCategory}) => {
 
     const handleClickDeleteWaist = (e, waist) => {
@@ -11,24 +14,27 @@ const WaistsSelect = ({category, setCategory}) => {
     }
 
     return (
-        <div className="content-waist-select-category">
+        <WaistsContent>
             <ul>
                 {category.waists.map( (waist, i) => (
                     <li
                         key={i}
                     >
-                        <div className="content-waist-select_name">
+                        <div className="waist">
                             <p>{waist}</p>
                         </div>
-                        <div className="content-waist-select_btn">
-                            <button
-                                onClick={(e) => handleClickDeleteWaist(e, waist)}
-                            >Eliminar Talle</button>
-                        </div>
+                        <button
+                            onClick={(e) => handleClickDeleteWaist(e, waist)}
+                            className="btn-delete"
+                        >
+                            <TrashIcon 
+                                className="icon"
+                            />
+                        </button>
                     </li>
                 ))}
             </ul>
-        </div>
+        </WaistsContent>
     );
 }
 

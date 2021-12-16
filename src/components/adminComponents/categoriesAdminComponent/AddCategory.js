@@ -6,6 +6,15 @@ import WaistsSelect from './WaistsSelect';
 import AlertField from '../../alertComponents/AlertField';
 import DropzoneCategoryImages from './DropzoneCategoryImages';
 
+import {
+    TitleAdmin,
+    Form,
+    FormLayout,
+    Fieldset,
+    Field,
+    BtnSubmit
+} from '../../UI';
+
 function validation(values) {
     let errors = {}
 
@@ -123,68 +132,76 @@ const AddCategory = ({
     }
 
     return (
-        <form 
-            onSubmit={handleSubmit}
-            className="form-admin">
-            <div className="form-add-category">
-                <fieldset>
-                    <legend>Información de categoría</legend>
-                    <div className="field-admin">
-                        <label htmlFor="name">Nombre (*)</label>
-                        <input 
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Nombre de categoría"
-                            onChange={handleChangeCategory}
-                            onBlur={handleBlur}
-                            value={category.name}
-                        />
-                        {errors.name ? <AlertField message={errors.name} /> : null}
-                    </div>
-                    <InputWaists 
-                        category={category}
-                        setCategory={setCategory}
-                        errors={errors}
-                        handleBlur={handleBlur}
-                        setErrors={setErrors}
-                    />
-                    {
-                        category.waists.length > 0
-                        ?
-                        <WaistsSelect 
+        <div>
+            <TitleAdmin>
+                <h2>Nueva categoría</h2>
+                <p>Completa los campos para añadir la categoría que deseas</p>
+            </TitleAdmin>
+            <Form 
+                onSubmit={handleSubmit}
+                className="form-admin"
+            >
+                <FormLayout>
+                    <Fieldset>
+                        <legend>Información de categoría</legend>
+                        <Field>
+                            <label htmlFor="name">Nombre (*)</label>
+                            <input 
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Nombre de categoría"
+                                onChange={handleChangeCategory}
+                                onBlur={handleBlur}
+                                value={category.name}
+                            />
+                            {errors.name ? <AlertField message={errors.name} /> : null}
+                        </Field>
+                        <InputWaists 
                             category={category}
                             setCategory={setCategory}
-                        /> : null
-                    }
-                </fieldset>
-                <fieldset>
-                    <legend>Imagen de Categoría</legend>
-                    {
-                        file.length > 0 ?
-                        <DropzoneCategoryImages 
-                            file={file}
-                            handleDeleteImage={handleDeleteImage}
-                            size={size}
-                            setSize={setSize}
-                        /> : 
-                        <DropzoneCategory 
-                            getInputProps={getInputProps}
-                            getRootProps={getRootProps}
-                            isDragActive={isDragActive}
+                            errors={errors}
+                            handleBlur={handleBlur}
+                            setErrors={setErrors}
                         />
-                    }
-                    {errors.images ? <AlertField message={errors.image} /> : null}
-                </fieldset>
-                <div className="form-admin_submit">
+                        {
+                            category.waists.length > 0
+                            ?
+                            <WaistsSelect 
+                                category={category}
+                                setCategory={setCategory}
+                            /> : null
+                        }
+                    </Fieldset>
+                    <Fieldset>
+                        <legend>Imagen de Categoría</legend>
+                        {
+                            file.length > 0 ?
+                            <DropzoneCategoryImages 
+                                file={file}
+                                handleDeleteImage={handleDeleteImage}
+                                size={size}
+                                setSize={setSize}
+                            /> : 
+                            <DropzoneCategory 
+                                getInputProps={getInputProps}
+                                getRootProps={getRootProps}
+                                isDragActive={isDragActive}
+                            />
+                        }
+                        {errors.images ? <AlertField message={errors.image} /> : null}
+                    </Fieldset>
+                    
+                </FormLayout>
+                <BtnSubmit>
                     <input 
                         type="submit"
-                        className="btn"
+                        className='btn-submit'
                         value="Agregar"
                     />
-                </div>
-            </div>
-        </form>
+                </BtnSubmit>
+            </Form>
+        </div>
     );
 }
 

@@ -1,136 +1,7 @@
 .admin-container {
-  min-height: 100vh;
   background-color: var(--w);
   font-family: 'Roboto', sans-serif;
 }
-.content-nav-admin {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  gap: 2rem;
-  height: 100%;
-}
-@media (min-width: 768px) {
-    .content-nav-admin {
-        display: block;
-    }   
-}
-.content-bar-admin {
-    position: static;
-  background-color: var(--w);
-  z-index: 5;
-  top: 0%;
-  width: 100%;
-  left: 0%;
-  max-height: 5.5rem;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  justify-content: center;
-}
-@media (min-width: 768px) {
-  .content-bar-admin {
-    position: fixed;
-    width: calc(100% - 20rem);
-    left: 20rem;
-    
-  border-bottom: .1rem solid var(--wll);
-  }
-}
-.content-bar-admin_info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
-.info-session-admin p {
-  color: var(--b);
-  font-size: 1.6rem;
-}
-@media (min-width: 768px) {
-  .info-session-admin p {
-    font-size: 1.8rem;
-  }
-}
-.button-session-admin .btn {
-  padding: 1rem 2rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  border: none;
-  background-color: var(--g);
-  color: var(--w);
-  border-radius: 0.5rem;
-  box-shadow: 0 0.6rem 0.1rem .1rem var(--b);
-  cursor: pointer;
-}
-
-/***** SidebarComponent ******/
-.container-sidebar-admin {
-  width: 100%;
-  left: 0%;
-  background-color: var(--w);
-  position: static;
-}
-@media (min-width: 768px) {
-  .container-sidebar-admin {
-    position: fixed;
-    width: 20rem;
-    max-width: 20rem;
-    left: 0%;
-    height: 100%;
-    border-right: .1rem solid var(--wll);
-    /* box-shadow: .5rem 0rem .25rem var(--b); */
-  }
-}
-.content-sidebar-admin_logo .title-logo {
-  margin: 0;
-  padding: 0;
-}
-.content-sidebar-admin {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 0 1rem;
-}
-@media (min-width: 768px) {
-  .content-sidebar-admin {
-    gap: 4rem;
-  }
-}
-.content-sidebar-admin_buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-@media (min-width: 768px) {
-  .content-sidebar-admin_buttons {
-    gap: 2rem;
-  }
-}
-.content-sidebar-admin_buttons .btn-sidebar {
-  padding: 1rem 0;
-  font-size: 1.6rem;
-  border-radius: 0.2rem;
-  color: var(--w);
-  background-color: var(--back-info);
-  box-shadow: 0 0.5rem 0.1rem .1rem var(--back-primary);
-  font-weight: 600;
-  transition: all 0.25s ease-in;
-  cursor: pointer;
-}
-
-.content-sidebar-admin_buttons .btn-sidebar:hover {
-  background-color: var(--back-primary);
-  box-shadow: 0 .5rem .1rem .1rem #10688a;
-}
-@media (min-width: 768px) {
-  .content-sidebar-admin_buttons .btn-sidebar {
-    font-size: 1.8rem;
-  }
-}
-
 
 /**** Content Component ****/
 .content-component-render-admin {
@@ -159,12 +30,14 @@
   gap: 1rem;
   padding: 0 1rem;
 } 
+
 @media (min-width: 768px) {
   .content-component_buttons {
     grid-template-columns: repeat(4, 1fr);margin-top: 6.5rem;
     gap: 4rem;
   }
 }
+
 .content-component_buttons .btn {
   padding: 2rem .5rem;
   font-size: 1.4rem;
@@ -182,16 +55,19 @@
   justify-content: space-between;
   gap: .5rem;
 }
+
 @media (min-width: 768px) {
   .content-component_buttons .btn {
     padding: 2rem 1rem;
     font-size: 2rem;
   }
 }
+
 .content-component_buttons .btn:hover {
   background-color: var(--back-primary);
   box-shadow: 0 .55rem .1rem .12rem #10688a;
 }
+
 .content-component_buttons .btn i {
   width: 3rem;
   height: 3rem;
@@ -204,6 +80,7 @@
   background-color: var(--w);
   color: var(--back-info);
 }
+
 @media (min-width: 768px) {
   .content-component_buttons .btn i {
     width: 3.5rem;

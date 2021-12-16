@@ -1,6 +1,98 @@
 import React, { useState, useContext } from 'react';
 import productsContext from '../../contexts/products/productsContext';
 import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
+
+const ContentMobileMenu = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 6rem;
+    & > nav {
+        display: block;
+        & > ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            & > li {
+                border-bottom: .1rem solid var(--g);
+                overflow: hidden;
+                .nav-menu {
+                    transition: all .25s ease-out;
+                    max-height: 0;
+                    transform: translateY(-100%);
+                    opacity: 0;
+                    padding: 0;
+                    &.view-tags {
+                        max-height: 100rem;
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                    ul {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        row-gap: 2rem;
+                        /* display: flex; */
+                        /* flex-direction: column; */
+                        padding: 1rem 0 1.5rem 0;
+                        background: var(--dll);
+                        li {
+                            text-align: left;
+                            .btn-link-mobile {
+                                padding: 0 1.5rem;
+                                font-size: 1.55rem;
+                                color: var(--wll);
+                                text-transform: uppercase;
+                                span {
+                                    font-weight: 300;
+                                    border-bottom: .1rem solid var(--wll);
+                                }
+                            }
+                        }
+                    }
+                }
+                padding: 0 .5rem 1rem .5rem;
+                &:last-of-type {
+                    border-bottom: none;
+                    padding: 0 .5rem;
+                }
+                .btn-mobile {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: var(--d);
+                    padding: 1rem .5rem;
+                    font-size: 1.6rem;
+                    transition: all .25s ease-out;
+                    & > span {
+                        font-weight: 500;
+                        text-transform: uppercase;
+                    }
+                    &.rotate {
+                        i {
+                            transform: rotate(180deg);
+                        }
+                    }
+                    i {
+                        
+                        transition: all .25s ease-out;
+                        color: var(--d);
+                        background: var(--dl);
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        display: flex;
+                        border-radius: 50%;
+                        align-items: center; justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+`
+
+
 const MobileMenu = ({ mobilemenu, 
     categories, 
     tags, 
@@ -47,113 +139,71 @@ const MobileMenu = ({ mobilemenu,
         <section
             className={`mobile-menu ${mobilemenu ? 'show-mobile-menu' : 'hidden-mobile-menu'}`}
         >
-            <div className="content-mobile-menu">
-                <nav
-                    className="nav-mobile-menu"
-                >
-                    {/* <div className="nav-mobile-menu_box"> */}
-                        {/* <span
-                            className={`link ${viewyoung ? 'link-d' : ''}`}
-                            onClick={() => handleViewYoung()}
-                        >
-                            <span>Young</span>
-                            <i className={`fas fa-chevron-${viewyoung ? 'up' : 'down'}`}></i>
-                        </span> */}
-                        {/* {
-                            viewyoung ?
-                                <ul className="items">
-                                    {categories.map(category => (
-                                        <li
-                                            key={category._id}
-                                        >
-                                            <Link
-                                                to={'/products'}
-                                                className={`link ${viewyoung ? 'link-d' : ''}`}
-                                            ><span>{category.name}</span></Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                                : null
-                        } */}
-                    {/* </div> */}
-                    <div className="nav-mobile-menu_box">
-                        <span
-                            className={`link ${viewtags ? 'link-d' : ''}`}
-                            onClick={() => handleViewTags()}    >
-                            <span>Tags</span>
-                            <i className={`fas fa-chevron-${viewtags ? 'up' : 'down'}`}></i>
-                        </span>
-                        {
-                            viewtags ?
-                                <ul className="items">
-                                    {tags.map((tag, i) => (
+            <ContentMobileMenu>
+                <nav>
+                    <ul>
+                        <li>
+                            <button
+                                className={`btn-mobile ${viewtags ? 'rotate' : ''}`}
+                                onClick={() => handleViewTags()}
+                            >
+                                <span>Tags</span>
+                                <i className="fas fa-chevron-down"></i>
+                            </button>
+                            <nav className={`nav-menu ${viewtags ? 'view-tags' : ''}`}>
+                                <ul className="">
+                                    {tags.map( (tag, i) => (
                                         <li
                                             key={i}
                                         >
                                             <Link
-                                                to={`/products/${tag.route}`}
-                                                className={`link ${viewtags ? 'link-d' : ''}`}
-                                            ><span>{tag.name}</span></Link>
+                                                to={"/products"}
+                                                className="btn-link-mobile"
+                                            >
+                                                <span>{tag.name}</span>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
-                                : null
-                        }
-                    </div>
-                    <div className="nav-mobile-menu_box">
-                        <span
-                            className={`link ${viewcategories ? 'link-d' : ''}`}
-                            onClick={() => handleViewCategories()}  >
-                            <span>Categorías</span>
-                            <i className={`fas fa-chevron-${viewcategories ? 'up' : 'down'}`}></i>
-                        </span>
-                        {
-                            viewcategories ?
-                                <ul className="items">
-                                    {categories.map((category, i) => (
+                            </nav>
+                        </li>
+                        <li>
+                            <button
+                                className={`btn-mobile ${viewcategories ? 'rotate' : ''}`}
+                                onClick={() => handleViewCategories()}
+                            >
+                                <span>Categorías</span>
+                                <i className="fas fa-chevron-down"></i>
+                            </button>
+                            <nav className={`nav-menu ${viewcategories ? 'view-tags' : ''}`}>
+                                <ul className="">
+                                    {categories.map( (category, i) => (
                                         <li
-                                            key={category._id}
+                                            key={i}
                                         >
                                             <Link
-                                                to={'/products'}
+                                                to={"/products"}
+                                                className="btn-link-mobile"
                                                 onClick={() => handleCategory(category)}
-                                                className={`link ${viewcategories ? 'link-d' : ''}`}
-                                            ><span>{category.name}</span></Link>
+                                            >
+                                                <span>{category.name}</span>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
-                                : null
-                        }
-                    </div>
-                    <Link
-                        to={'/contact'}
-                    >
-                        <span className="link"><span>Contacto</span></span>
-                    </Link>
-                </nav>
-                {
-                    authenticated && user ? (
-                        <div className="session-buttons">
+                            </nav>
+                        </li>
+                        <li>
                             <Link
-                                to={"/"}
-                                className="session-link"
+                                className="btn-mobile"
+                                to={"/contact"}
                             >
-                                Hola {user.name}
+                                <span>Contacto</span>
                             </Link>
-                            <span className="_bar">|</span>
-                            <button
-                                to={'/'}
-                                className="session-link"
-                                onClick={() =>{ logout(); cleanCheckout()}}
-                            >
-                                Cerrar sesión
-                            </button>
-                        </div>
-                    ):(
-                        null
-                    )
-                }
-            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </ContentMobileMenu>
         </section>
     );
 }

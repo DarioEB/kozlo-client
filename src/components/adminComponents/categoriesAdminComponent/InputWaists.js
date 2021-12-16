@@ -1,6 +1,10 @@
+import { PlusCircleIcon } from '@heroicons/react/outline';
 import React, { useState } from 'react';
 import AlertField from '../../alertComponents/AlertField';
-
+import {
+    FieldWaist,
+    Field
+} from '../../UI';
 const InputWaists = ({
     category,
     setCategory,
@@ -39,8 +43,10 @@ const InputWaists = ({
 
     return (
         <>
-            <div className="field-admin_tw">
-                <div className="field-admin">
+            <FieldWaist>
+                <Field
+                    className="field-waist"
+                >
                     <label htmlFor="waist">Talle (*)</label>
                     <input
                         type="text"
@@ -50,15 +56,16 @@ const InputWaists = ({
                         onChange={e => setWaist(e.target.value)}
                         onBlur={handleBlur}
                     />
-                </div>
-                <div className="field-admin">
-                    <label htmlFor="btn"></label>
-                    <button
-                        className="btn-add-waist"
-                        onClick={e => handleWaist(e)}
-                    >Agregar Talle</button>
-                </div>
-            </div>
+                </Field>
+                <button
+                    className="btn-add-waist"
+                    onClick={e => handleWaist(e)}
+                >
+                    <PlusCircleIcon 
+                        className="icon"
+                    />
+                </button>
+            </FieldWaist>
             {errors.waists ? <AlertField message={errors.waists} /> : null}
         </>
 

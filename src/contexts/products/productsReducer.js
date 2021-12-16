@@ -19,7 +19,13 @@ import {
     ADD_FILTER_PRICE,
     REMOVE_FILTER_PRICE,
     FILTER_SEARCH,
-    REMOVE_FILTER_SEARCH
+    REMOVE_FILTER_SEARCH,
+    GET_FILTER_PRODUCTS,
+    GET_FILTER_SEARCH,
+    GET_ALL_PRODUCTS,
+    UPDATE_PRODUCT,
+    UPDATE_PRODUCT_SUCCESS,
+    UPDATE_PRODUCT_ERROR
 } from '../../types';
 
 const productsReducer = (state, action) => {
@@ -54,7 +60,7 @@ const productsReducer = (state, action) => {
                 ...state,
                 loadProducts: false,
                 products: action.payload,
-                filterProducts: action.payload
+                filterProducts: action.payload  
             }
         case GET_PRODUCTS_FILTER_SUCCESS:
             return {
@@ -147,6 +153,42 @@ const productsReducer = (state, action) => {
             return {
                 ...state,
                 filterProducts: state.products
+            }
+        case GET_FILTER_PRODUCTS:
+
+            return {
+                ...state,
+                filterProducts: state.products.filter( product => product.category._id === action.payload)
+            }
+        case GET_ALL_PRODUCTS:
+            return {
+                ...state,
+                filterProducts: state.products
+            }
+        case GET_FILTER_SEARCH:
+            return {
+                ...state,
+                filterProducts: state.products.filter( product => product.name.toLowerCase().includes(action.payload) || product.brand.toLowerCase().includes(action.payload))
+            }
+        case UPDATE_PRODUCT:
+            return {
+                ...state,
+                loadProduct: true
+            }
+        case UPDATE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loadProduct: false,
+                errorProduct: null,
+                product: action.payload.product,
+                message: action.payload.message
+            }
+        case UPDATE_PRODUCT_ERROR:
+            return {
+                ...state,
+                loadProduct: false,
+                errorProduct: true,
+                message: "Error al actualizar el producto"
             }
         default:
             return state

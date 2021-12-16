@@ -62,8 +62,14 @@ const Outstading = ({products}) => {
                                                 <h4>{product.name}</h4>
                                                 <p className="brand">{product.brand}<i className="fas fa-tag"></i></p>
                                                 <div className="prices">
-                                                    <p className="p-origin">${product.price}</p>
-                                                    <p className="p-discount">${(product.price - (product.price * (product.discount / 100))).toFixed(2)}</p>
+                                                    {product.discount > 0 ?
+                                                        <>
+                                                            <p className="p-origin">$ {(product.price).toFixed(2)}</p>
+                                                            <p className="p-discount">${(product.price - (product.price * (product.discount / 100))).toFixed(2)}</p>    
+                                                        </> :
+                                                        <p className="p-discount">$ {(product.price).toFixed(2)}</p>
+                                                    }
+                                                    
                                                 </div>
                                             </div>
                                         </div>

@@ -1,4 +1,10 @@
 import React from 'react';
+import{
+    TrashIcon
+} from '@heroicons/react/outline';
+import {
+    WaistsContent
+} from '../../UI';
 
 const WaistSelect = ({product, setProduct}) => {
 
@@ -11,27 +17,30 @@ const WaistSelect = ({product, setProduct}) => {
     }
 
     return (
-        <div className="content-waist-select">
+        <WaistsContent>
             <ul>
                 {product.waists.map( (waist, i) => (
                     <li
                         key={i}
                     >
-                        <div className="content-waist-select_name">
-                            <p>{waist.waist}</p>
+                        <div className="waist">
+                            <p>Talle: {waist.waist}</p>
                         </div>
-                        <div className="content-waist-select_stock">
-                            <p>{waist.stock}</p>
+                        <div className="waist">
+                            <p>stock: {waist.stock}</p>
                         </div>
-                        <div className="content-waist-select_btn">
-                            <button
-                                onClick={(e) => handleClickDeleteWaist(e, waist)}
-                            >Eliminar Talle</button>
-                        </div>
+                        <button
+                            className="btn-delete"
+                            onClick={(e) => handleClickDeleteWaist(e, waist)}
+                        >
+                            <TrashIcon 
+                                className="icon"
+                            />
+                        </button>
                     </li>
                 ))}
             </ul>
-        </div>
+        </WaistsContent>
     );
 }
 

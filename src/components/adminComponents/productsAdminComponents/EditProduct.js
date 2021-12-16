@@ -1,70 +1,62 @@
-import React, { useContext, useEffect } from 'react';
-import AddProduct from './productsAdminComponents/AddProduct';
-import ListProducts from './productsAdminComponents/ListProducts';
-import {
-    PlusCircleIcon,
-    ChartSquareBarIcon,
-    ViewListIcon
-} from '@heroicons/react/outline';
-import {
-    ButtonsAction,
-    BtnAction
-} from '../UI';
+import React, {useContext, useEffect} from 'react';
 import {
     Link,
     useParams
-} from 'react-router-dom'
-// Contexts
-import authContext from '../../contexts/auth/authContext';
-import productsContext from '../../contexts/products/productsContext';
-import categoriesContext from '../../contexts/categories/categoriesContext';
-import tagsContext from '../../contexts/tags/tagContext';
-import Bar from './Bar';
-import Sidebar from './Sidebar';
-import Loader from '../layout/Loader';
-import adminContext from '../../contexts/admin/adminContext';
+} from 'react-router-dom';
+import authContext from '../../../contexts/auth/authContext';
+import productsContext from '../../../contexts/products/productsContext';
+import categoriesContext from '../../../contexts/categories/categoriesContext';
+import tagsContext from '../../../contexts/tags/tagContext';
+import adminContext from '../../../contexts/admin/adminContext';
+// Layout
+import Bar from '../Bar';
+import Sidebar from '../Sidebar';
+import Loader from '../../layout/Loader';
+import { BtnAction, ButtonsAction } from '../../UI';
+import { ChartSquareBarIcon, PlusCircleIcon, ViewListIcon } from '@heroicons/react/outline';
+import Edit from './Edit';
 
-// Layout Components
-const ProductsAdmin = () => {
+const EditProduct = () => {
 
-    const { component } = useParams();
-    
+    const { id } = useParams();
+
     // ProductsContext
     const ProductsContext = useContext(productsContext);
     const {
-        getProducts,
-        addProduct, 
-        cleanForm, 
-        deleteProduct,
-        getFilterProducts,
-        filterProducts,
-        getAllProducts,
-        handleFilterSearch
+        getProduct,
+        product,
+        updateProduct
     } = ProductsContext;
+
     // CategoriesContext
     const CategoriesContext = useContext(categoriesContext);
-    const { getCategories, categories  } = CategoriesContext;
+    const {getCategories, categories} = CategoriesContext;
+    
     // TagsContext
     const TagsContext = useContext(tagsContext);
-    const {getTags, tags } = TagsContext;
-    // Admin
+    const { getTags, tags} = TagsContext;
+
+    // adminContext
     const AdminContext = useContext(adminContext);
     const { content, changeContent } = AdminContext;
 
     // Auth
     const AuthContext = useContext(authContext);
-    const {  user, authenticatedUser, logout } = AuthContext;
+    const {
+        user,
+        authenticatedUser,
+        logout
+    } = AuthContext;
 
     useEffect( () => {
         authenticatedUser();
         // eslint-disable-next-line
     }, []);
 
-
     useEffect( () => {
-        getProducts();
+        getProduct(id);
         // eslint-disable-next-line
-    }, []);
+    }, [id]);
 
     useEffect( () => {
         getCategories();
@@ -75,8 +67,8 @@ const ProductsAdmin = () => {
         getTags();
         // eslint-disable-next-line
     }, []);
-    
-    if(!user) return <Loader />
+
+    if(!user || !product || !categories || !tags) return <Loader />
 
     return (
         <section className="admin-container">
@@ -92,7 +84,7 @@ const ProductsAdmin = () => {
             </div>
             <div className="content-component-render-admin">
                 <ButtonsAction>
-                    <BtnAction
+                <BtnAction
                         className={``}
                     >
                         <Link
@@ -132,26 +124,18 @@ const ProductsAdmin = () => {
                         </Link>
                     </BtnAction>
                 </ButtonsAction>
-                <div className="content-component_actions">
-                    { (component === 'add-product' && !cleanForm) ? 
-                        <AddProduct 
-                            categories={categories}
-                            tags={tags}
-                            addProduct={addProduct} 
-                        /> : null  }
-                    { (component === 'list-products') ? 
-                        <ListProducts
-                            deleteProduct={deleteProduct}
-                            categories={categories}
-                            filterProducts={filterProducts}
-                            getFilterProducts={getFilterProducts}
-                            handleFilterSearch={handleFilterSearch}
-                            getAllProducts={getAllProducts}
-                        /> : null }
-                </div>
+                {
+                    (product && categories && tags) ?
+                    <Edit 
+                        productEdit={product}
+                        categories={categories}
+                        tags={tags}
+                        updateProduct={updateProduct}
+                    /> : null
+                }
             </div>
         </section>
     );
 }
 
-export default ProductsAdmin;
+export default EditProduct;

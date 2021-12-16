@@ -1,5 +1,7 @@
 import React from 'react';
-
+import {
+    DropzoneDiv
+} from '../../UI';
 const DropzoneCategory = ({
     getInputProps,
     getRootProps,
@@ -8,8 +10,9 @@ const DropzoneCategory = ({
 
 
     return (
-        <div
-            {...getRootProps({ className: 'dropzone' })}>
+        <DropzoneDiv
+            {...getRootProps()}
+        >
             <input
                 className="h-100"
                 {...getInputProps()}
@@ -33,7 +36,7 @@ const DropzoneCategory = ({
                         </div>
                     )
             }
-        </div>
+        </DropzoneDiv>
     );
 }
 

@@ -1,10 +1,12 @@
 import React from 'react';
-
+import {
+    DropzoneDiv 
+} from '../../UI';
 const DropzoneProduct = ({getRootProps, getInputProps, isDragActive}) => {
 
     return (
-        <div
-            {...getRootProps({ className: 'dropzone' })}>
+        <DropzoneDiv
+            {...getRootProps()}>
             <input
                 className="h-100"
                 {...getInputProps()}
@@ -12,23 +14,22 @@ const DropzoneProduct = ({getRootProps, getInputProps, isDragActive}) => {
             {
                 isDragActive ?
                     (
-                        <p className="text-drop">
+                        <p>
                             Suelta el archivo
                         </p>
                     ) :
                     (
-                        <div className="box-btn-drop">
-                            <p className="text-drop">
+                        <div className="">
+                            <p>
                                 Selecciona las imagenes y arrastralas aquí
                             </p>
                             <button
-                                className="btn-drop"
                                 type="button"
                             >Selecciona las imagenes del producto</button>
                         </div>
                     )
             }
-        </div>
+        </DropzoneDiv>
     );
 }
 

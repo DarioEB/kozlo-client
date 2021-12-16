@@ -20,7 +20,13 @@ import {
     ADD_FILTER_PRICE,
     REMOVE_FILTER_PRICE,
     FILTER_SEARCH,
-    REMOVE_FILTER_SEARCH
+    REMOVE_FILTER_SEARCH,
+    GET_FILTER_PRODUCTS,
+    GET_FILTER_SEARCH,
+    GET_ALL_PRODUCTS,
+    UPDATE_PRODUCT,
+    UPDATE_PRODUCT_SUCCESS,
+    UPDATE_PRODUCT_ERROR
 } from '../../types';
 import productsReducer from './productsReducer';
 import productsContext from './productsContext';
@@ -253,6 +259,44 @@ const ProductsState = ({children}) => {
         })
     }
 
+    const getFilterProducts = (category) => {
+        dispatch({
+            type: GET_FILTER_PRODUCTS,
+            payload: category 
+        })
+    }
+    
+    const getAllProducts = () => {
+        dispatch({
+            type: GET_ALL_PRODUCTS
+        })
+    }
+
+    const handleFilterSearch = e => {
+        dispatch({
+            type: GET_FILTER_SEARCH,
+            payload: e.target.value
+        })
+    }
+
+    const updateProduct = async (product) => {
+        dispatch({
+            type: UPDATE_PRODUCT
+        })
+        try {
+            const response = await client.put(`/api/products/${product._id}`);
+            dispatch({
+                type: UPDATE_PRODUCT_SUCCESS,
+                payload: response.data
+            })
+        } catch (err) {
+            console.log(err);
+            dispatch({
+                type: UPDATE_PRODUCT_ERROR
+            })
+        }
+    }
+
     return (
         <productsContext.Provider
             value={{
@@ -275,7 +319,11 @@ const ProductsState = ({children}) => {
                 deleteProduct,
                 addFilterPrice,
                 filterSearch,
-                removeFilterSearch
+                removeFilterSearch,
+                getFilterProducts,
+                handleFilterSearch,
+                getAllProducts,
+                updateProduct
             }}
         >
             {children}
